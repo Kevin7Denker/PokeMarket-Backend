@@ -1,6 +1,6 @@
 
 //Validar Token
-export function checkToken(req, res, next){
+function checkToken(req, res, next){
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split('')[1];
   
@@ -18,3 +18,5 @@ export function checkToken(req, res, next){
       res.status(401).json({ msg: "Token invalid" });
     }
 }
+
+module.exports = checkToken;

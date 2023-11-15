@@ -2,9 +2,9 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const authRoutes = require("./authRoutes");
-const publicRoutes = require("./publicRoutes");
-const privateRoutes = require("./privateRoutes");
+const authRoutes = require("./routes/auth");
+const publicRoutes = require("./routes/public");
+const privateRoutes = require("./routes/private");
 
 const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASS;
