@@ -10,6 +10,8 @@ const privateRoutes = require("./routes/private");
 const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASS;
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 app.use(cors());
 
@@ -26,7 +28,7 @@ mongoose
     `mongodb+srv://${dbUser}:${dbPass}@cluster.bduwuwe.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(3000);
+    app.listen(port);
     console.log("Connected");
   })
   .catch((error) => console.log("Erro: " + error));
