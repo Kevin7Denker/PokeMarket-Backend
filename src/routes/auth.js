@@ -4,11 +4,11 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const route = express.Router();
-
+  
 // -------------------- Sing Up -------------------- //
 
 route.post("/register", async (req, res) => {
-  const { name, email, password, confirmpassword } = req.body;
+  const { name, email, password, confirmPassword } = req.body;
   const userExists = await User.findOne({ email: email });
 
   if (!name) {
@@ -20,12 +20,10 @@ route.post("/register", async (req, res) => {
   if (!password) {
     return res.status(422).json({ msg: "The password field is required" });
   }
-  if (!confirmpassword) {
-    return res
-      .status(422)
-      .json({ msg: "The confirmed password field is required" });
+  if (!confirmPassword) {
+    return res.status(422).json({ msg: "The confirmed password field is required" });
   }
-  if (password !== confirmpassword) {
+  if (password !== confirmPassword) {
     return res.status(422).json({ msg: "The passowords need to be similar" });
   }
   if (userExists) {
@@ -76,6 +74,6 @@ route.post("/login", async (req, res) => {
 
     res.status(200).json({ msg: "Sucess" });
   } catch (error) {}
-});
+}); 
 
 module.exports = route;
