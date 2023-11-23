@@ -20,8 +20,8 @@ app.use(express.json());
 
 app.options("*", cors());
 
-app.use("/auth", authRoutes);
 app.use("/", publicRoutes);
+app.use("/auth", authRoutes);
 app.use("/private", privateRoutes);
 
 mongoose
@@ -30,6 +30,7 @@ mongoose
   )
   .then(() => {
     app.listen(port);
-    console.log("Connected");
+    console.log("\n Connected to server");
+    console.log(`\n Utilize a Url: http://localhost:${port}`);
   })
   .catch((error) => console.log("Erro: " + error));
