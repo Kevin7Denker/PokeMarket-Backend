@@ -8,7 +8,8 @@ const publicRoutes = require("./routes/public");
 const privateRoutes = require("./routes/private");
 
 const dbUser = process.env.DB_USER;
-const dbPass = process.env.DB_PASS;
+const dbPass = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME;
 
 const port = process.env.PORT || 3000;
 
@@ -25,7 +26,7 @@ app.use("/private", privateRoutes);
 
 mongoose
   .connect(
-    `mongodb+srv://${dbUser}:${dbPass}@cluster.bduwuwe.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://${dbUser}:${dbPass}@cluster.irye11p.mongodb.net/${dbName}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(port);
