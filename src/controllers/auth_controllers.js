@@ -39,7 +39,7 @@ const registerUser = async (req, res) => {
 
   try {
     await user.save();
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       msg: "Register successfully",
       data: [
@@ -87,7 +87,7 @@ const loginUser = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({
+    res.status(202).json({
       success: true,
       msg: "Login successfully",
       token: token,
