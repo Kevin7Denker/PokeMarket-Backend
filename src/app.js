@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const publicRoutes = require("./routes/public");
 const privateRoutes = require("./routes/private");
+const pokemonRoutes = require("./routes/pokemons"); 
 
 const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASSWORD;
@@ -23,6 +24,8 @@ app.options("*", cors());
 app.use("/", publicRoutes);
 app.use("/auth", authRoutes);
 app.use("/private", privateRoutes);
+app.use("/pokemons", pokemonRoutes);
+
 
 mongoose
   .connect(
